@@ -1,4 +1,4 @@
-loom
+Loom
 ====
 
-weaves jekyll and bash into a cms
+dynamically weaves together jekyll site
