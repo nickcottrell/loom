@@ -1,2 +1,3 @@
-loom-site/public/REMOVE*
-loom-jekyll/_posts/REMOVE*
+.DS_Store
+loom-site/public/
+loom-jekyll/_posts/
