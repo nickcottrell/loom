@@ -1,0 +1,10 @@
+---
+layout: default
+categories: [  ]
+permalink: demo/hello/world
+title: hello
+text: world
+submit: Post
+SQLiteManager_currentLangue: 2
+---
+

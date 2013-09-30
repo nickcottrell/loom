@@ -1,0 +1,7 @@
+---
+permalink: demo/hello/world/feed
+layout: feed
+categories: [ feeds ]
+---
+
+{"permalink":"demo/hello/world","title":"hello","text":"world","submit":"Post","SQLiteManager_currentLangue":"2","blank":"endcap"}
