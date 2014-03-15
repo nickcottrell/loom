@@ -49,7 +49,7 @@ Title<br />
 
 Text</br />
 <? textarea('text');?>
-<? //textarea_encoded('text');?>
+<? //eventually need to add a textarea_encoded();?>
 
 <br /><br />						
 <input class="" type="submit" name="submit" value="Post">

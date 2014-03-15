@@ -15,9 +15,6 @@ $TITLE_VAL = getvaluefromjson('title');
 
 if (isset($PERMALINK_VAL)) {
 
-
-//HACKJOB TO INSTEAD REQUEST TBIS FROM THE SPECIFIED JSON
-
 //now do the same as in "generate" but with the values defined as per above
 
 

@@ -13,15 +13,16 @@ Since there is no database, loom uses a simple JSON API to store information. Ea
 
 ### Static Site:
 
-Loom requires [Jekyll](https://github.com/mojombo/jekyll/). Learn about it and install it. Once installed, you should just be able to Jekyll on the command line in the "loom-jekyll" directory. Loom is used to create the "post" files. The jekyll directory is set up here to work as a normal jekyll site, but highly leverages the "permalink" feature usually used for "posts" to basically create all of the pages in a given site. Since the layout is specified by the `.textile` files, you can simply change layouts and use the jekyll "category" feature if you want to create a site with different sections and layouts.
-	
+Loom requires [Jekyll](https://github.com/mojombo/jekyll/). Learn about it and install it. Once installed, you should just be able to run Jekyll on the command line in the `loom-jekyll` directory. The jekyll directory is set up here to work as a normal jekyll site, but highly leverages the "permalink" feature usually used for "posts" to basically create all of the pages in a given site, as opposed to being used only for blog posts. Since the layout is specified by the `.textile` files, you can determine the "layout" with the flat file and also configure the "category" if you want to create a site with different sections and layouts. Since Loom is used to generate the "post" files in the jekyll site, it is effectively acting as a CMS to manage the flat files that are used to configure the site content. A CMS that uses Jekyll as the engine.
+
+One of the more interesting and experimental features of Loom is that instead of storing data in a database, it stores the data in JSON. Every page of the static site contains a corresponding "feed" page that contains the data posted from the submitted form. Loom accesses the JSON data when editing and deleting posts.	
 	
 ### Local Loom
 * Run a PHP server on the `loom-webapp` directory
 * Run any web server you want on the `loom-site/public` directory
 
 ### Loom in Production
-Good luck.
+Good luck. You'll need to configure your server so that the script can run Jekyll in the appropriate directory. You'll also need to address the countless security issues associated with allowing a user to use the app to generate new files on the server. It can be done, but it's definitely not a plug-and-play type of thing.
 
 
 ### Posting
@@ -40,7 +41,24 @@ In the corresponding *jekyll layout* template use:
 
 When the data is posted using the form, the data gets added to the flat "post" files jekyll uses to generate the site. Loom passes data from the forms into the jekyll files.
 
+In a few cases, some of the standard jekyll/YAML variables such as `layout`,`permalink`,`category` will be required to properly generate a page. For example, the `permalink` is required to tell jekyll where you want you page to exist in the site. For this demo, the permalink value is set by the following text entered into the formfield by the user:
 
+	post
+	
+But could be anything you want, such as:
+
+	post/samples/pages/foo/bar
+	
+This will post the page at the following location:
+
+	http://url.com/post/samples/pages/foo/bar/
+	
+In addition to each page that's posted, Loom will create a corresponding "feed" page, which stores all of the values in JSON. The corresponding URL is always the URL + `/feed/`. For example, the feed URL for the link above would be:
+
+	http://url.com/post/samples/pages/foo/bar/feed/
+
+
+	
 ### Editing
 
 When Loom detects an "edit" parameter, it will fill the form with the data associated with a particular page. The parameter looks like this:
@@ -48,6 +66,11 @@ When Loom detects an "edit" parameter, it will fill the form with the data assoc
 	?edit=http://url.com/this/post/feed
 	
 The URL is the JSON feed that contains the information posted by Jekyll, along side the corresponding web page. Each textarea element will look for the edit param and if it finds it, it then searches the JSON for the corresponding data. If it doesn't find anything it will just leave the forms blank.
+
+This is why Loom uses a special function to render it's form fields. The function is checks the JSON or param value (see "Other Hacks") and fills it in with the default data if detected.
+
+	<? textarea('headline');?>
+	
 
 
 ### Deleting
@@ -62,5 +85,6 @@ Use params for any particular variable in a form, which will default the text fo
 
 	?title=helloworld
 	
+The param can be handy for mutli-stepped forms or for transferring data from one step to another.
 
 
