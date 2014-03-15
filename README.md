@@ -1,7 +1,7 @@
 Loom
 ====
-Dynamically weaves together jekyll
------------------------------------
+Dynamically weave together a RESTful API
+----------------------------------------
 
 
 Loom is basically a "flat" file based CMS. That means there is no database, but the user is able to use the app to generate new pages, write and retrieve information. The architecture is highly experimental and is designed to suit specific use cases where it might be easier to create a custom server that can run jekyll or there might be benefit to ultimately being able to export a static site from a simple CMS. It's really just kind of a fun set up. 
