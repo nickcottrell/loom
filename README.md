@@ -72,7 +72,7 @@ When Loom detects an "edit" parameter, it will fill the form with the data assoc
 	
 The URL is the JSON feed that contains the information posted by Jekyll, along side the corresponding web page. Each textarea element will look for the edit param and if it finds it, it then searches the JSON for the corresponding data. If it doesn't find anything it will just leave the forms blank.
 
-This is why Loom uses a special function to render it's form fields. The function is checks the JSON or param value (see "Other Hacks") and fills it in with the default data if detected.
+This is why Loom uses a special function to render it's form fields. The function checks the JSON or param value (see "Other Hacks") and fills it in with the default data if detected.
 
 	<? textarea('headline');?>
 	
