@@ -4,7 +4,11 @@
 function textarea($var, $var2) {
 	$edit_url = $_REQUEST['edit'];
 	$param_value = $_REQUEST[$var];
-	$string = file_get_contents($edit_url);
+	if (isset($edit_url)){
+		$string = file_get_contents($edit_url);		
+	} else {
+		//do nothing
+	}
 	$json_o = json_decode($string);
 	$jsonvar = $json_o->$var;
 	echo "<textarea name='".$var."' placeholder='".$var2."'>";
@@ -40,15 +44,15 @@ function textarea($var, $var2) {
 <h2>Post a Page</h2>
 
 Permalink<br />
-<? textarea('permalink');?>
+<? textarea('permalink', 'permalink');?>
 <br /><br />
 
 Title<br />
-<? textarea('title');?>
+<? textarea('title', 'title');?>
 <br /><br />
 
 Text</br />
-<? textarea('text');?>
+<? textarea('text', 'text');?>
 <? //eventually need to add a textarea_encoded();?>
 
 <br /><br />						

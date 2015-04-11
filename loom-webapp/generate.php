@@ -108,7 +108,7 @@ fclose($feedfilehandler);
 
 
 // EXECUTE SHELL COMMANDS
-$shelloutput = shell_exec('cd ../loom-jekyll/; jekyll;');
+$shelloutput = shell_exec('cd ../loom-jekyll/; jekyll build;');
 ?>
 
 
