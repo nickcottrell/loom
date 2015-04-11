@@ -21,6 +21,11 @@ One of the more interesting and experimental features of Loom is that instead of
 * Run a PHP server on the `loom-webapp` directory
 * Run any web server you want on the `loom-site/public` directory
 
+This repo has a `_servers` directory. From that directory, you can run the following:
+
+	$ bash server_php.sh;
+	$ bash server_ruby.sh;
+
 ### Loom in Production
 Good luck. You'll need to configure your server so that the script can run Jekyll in the appropriate directory. You'll also need to address the countless security issues associated with allowing a user to use the app to generate new files on the server. It can be done, but it's definitely not a plug-and-play type of thing.
 
