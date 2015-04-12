@@ -6,6 +6,8 @@ function getvaluefromjson($var) {
 	$string = file_get_contents($edit_url);
 	$json_o = json_decode($string);
 	$jsonvar = $json_o->$var;
+	//decode the base64 strings
+	$jsonvar = base64_decode($jsonvar);
 	return $jsonvar;
 }
 
