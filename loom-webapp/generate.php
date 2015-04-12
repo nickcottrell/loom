@@ -42,8 +42,8 @@ $postVARS = getAllTextile();
 			"layout: default"."\n".
 			"categories: "."[ ".$_REQUEST['categories']." ]"."\n".
 			$postVARS.			
-			"---"."\n\n"
-			//$_REQUEST['content']
+			"---"."\n\n".
+			$_REQUEST['content']
 			;
 
 $feedVARS = getAlljson();

@@ -15,6 +15,7 @@ function textarea($var, $var2) {
 	if (isset($param_value)){
 		echo $param_value;
 	} else if (isset($jsonvar)){
+		$jsonvar = base64_decode($jsonvar);
 		echo $jsonvar;
 	} else {	
 		//do nothing;
@@ -52,7 +53,7 @@ Title<br />
 <br /><br />
 
 Text</br />
-<? textarea('text', 'text');?>
+<? textarea('content', 'content');?>
 <? //eventually need to add a textarea_encoded();?>
 
 <br /><br />						
