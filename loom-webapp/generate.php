@@ -3,7 +3,9 @@
 			function loom_write_textile($var1, $var2) {
     			if($var == "categories") {
       				$textile_string = $var1.": "."[ ".$var2." ]"."\n";
-				} else 	if ($var1 == "__atuvc") {
+				} else if ($var1 == "__atuvc") {
+      				//BLEEEEEEEP
+				} else if ($var1 == "content") {
       				//BLEEEEEEEP
 				} else {
       				$textile_string = $var1.": ".$var2."\n";
