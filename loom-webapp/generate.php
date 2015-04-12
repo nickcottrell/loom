@@ -59,6 +59,7 @@ $feedVARS = getAlljson();
 			;
 
 //CLEAN UP STRINGS
+date_default_timezone_set('America/Los_Angeles');
 $now = date("Y-m-d-His");
 
 $strippedfilename = $_REQUEST['title'];
