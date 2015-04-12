@@ -3,11 +3,14 @@
 			function loom_write_textile($var1, $var2) {
     			if($var == "categories") {
       				$textile_string = $var1.": "."[ ".$var2." ]"."\n";
-    			} else {
+				} else 	if ($var1 == "__atuvc") {
+      				//BLEEEEEEEP
+				} else {
       				$textile_string = $var1.": ".$var2."\n";
     			}
     			return $textile_string;
   				}
+
 			$all = null;
 			foreach($_REQUEST as $key=>$value) {
       			$all = $all . loom_write_textile($key, $value);
@@ -17,11 +20,16 @@
 
   		function getAlljson() {
 			function loom_write_json($var1, $var2) {
+				if ($var1 == "__atuvc") {
+	    			//BLEEEEEEEP
+				} else {
     			$json_string = '"'.$var1.'":"'.$var2.'"'.",";
 				return $json_string;
+				}
   			}
 			$all = null;
 			foreach($_REQUEST as $key=>$value) {
+				$value = base64_encode($value);
 			$all = $all . loom_write_json($key, $value);
 			}
 			return $all;
