@@ -1,6 +1,6 @@
 Loom
 ====
-RESTful API-powered CMS
+RESTful(ish) CMS
 -----------------------
 
 
